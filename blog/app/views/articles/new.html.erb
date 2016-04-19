@@ -1,4 +1,13 @@
 <%= form_for :article, url: articles_path do |f| %>
+
+<% if @article.errors.any? %>
+  <p> Oops, Something went wrong! </p>
+  <% @article.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
